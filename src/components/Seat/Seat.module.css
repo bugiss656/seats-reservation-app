@@ -1,0 +1,43 @@
+.seat {
+    align-self: center;
+    justify-self: center;
+    width: 65px;
+    height: 65px;
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+.seatAvailable {
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    transition: box-shadow 0.2s, background-color 0.1s;
+}
+
+.seatReserved {
+    background-color: #999999;
+    border: 2px solid #000000;
+}
+
+.seatChoice {
+    background-color: #ffa64d;
+    border: 2px solid #000000;
+}
+
+.seatInactive {
+    background-color: #ffffff;
+}
+
+.seatLegendItem {
+    margin: 10px;
+}
+
+.seatLegendText {
+    margin: 0 10px;
+}
+
+.seatAvailable:hover, .seatChoice:hover {
+    background-color: #ffa64d;
+    box-shadow: 0 0 2px #000000;
+}

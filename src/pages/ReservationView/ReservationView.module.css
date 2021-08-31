@@ -1,0 +1,7 @@
+.seatsView {
+    display: grid;
+    justify-content: center;
+    grid-gap: 10px;
+    grid-template-columns: repeat(15, 0fr);
+    margin: 80px 0;
+}
