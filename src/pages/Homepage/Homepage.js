@@ -5,6 +5,10 @@ import Checkbox from '../../components/Checkbox/Checkbox'
 import Input from '../../components/Input/Input'
 import { useDispatch } from 'react-redux'
 import { updateSeatsCount, updateSeatsNearBy } from '../../features/order/orderSlice'
+import Alert from '../../components/Alert/Alert'
+
+import styles from '../../components/Alert/Alert.module.css'
+import useAlert from '../../components/Alert/useAlert'
 
 
 
@@ -12,6 +16,8 @@ const Homepage = () => {
     const [seats_count, setSeatsCount] = useState(0)
     const [seats_near_by, setSeatsNearBy] = useState(false)
     const [checkbox_disabled, setCheckboxDisabled] = useState(true)
+    
+    const { handleDisplayAlert, display, alert_text } = useAlert()
 
     const dispatch = useDispatch()
     const history = useHistory()
@@ -47,10 +53,11 @@ const Homepage = () => {
         e.preventDefault()
 
         if ( seats_count === 0) {
-            alert('Nie wybrano żadnych miejsc, spróbuj ponownie.')
+            handleDisplayAlert('Nie wybrano żadnych miejsc, spróbuj ponownie.')
+
 
         } else if (seats_near_by === true && seats_count > 5) {
-            alert('Maksymalna ilość miejsc obok siebie: 5')
+            handleDisplayAlert('Maksymalna ilość miejsc obok siebie: 5.')
 
         } else {
             handleUpdateSeatsCount()
@@ -62,6 +69,9 @@ const Homepage = () => {
 
     return (
         <section className="d-flex justify-content-center align-items-center" style={{height: '100vh'}}>
+            {display && 
+                <Alert type={`${styles.alertBox} ${styles.alertBoxDanger}`} text={alert_text} />
+            }
             <form onSubmit={handleOnFormSubmit}>
                 <div className="row my-3">
                     <Input label="Liczba miejc:" value={seats_count} onChange={handleInputOnChange} />
