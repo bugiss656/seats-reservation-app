@@ -1,20 +1,35 @@
 import { useEffect, useCallback } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
+import { seatsCount, seatsNearBy } from '../../features/order/orderSlice'
+import useAlert from '../../components/Alert/useAlert'
+import { 
+    fetchSeats, 
+    addSeats, 
+    addSingleSeat, 
+    removeSingleSeat, 
+    addReservation, 
+    selectSeats, 
+    selectSelectedSeats 
+} from '../../features/reservation/reservationSlice'
+
 import Seat from '../../components/Seat/Seat'
 import Legend from '../../components/Legend/Legend'
 import Button from '../../components/Button/Button'
-import { seatsCount, seatsNearBy } from '../../features/order/orderSlice'
-import { fetchSeats, addSeats, addSingleSeat, removeSingleSeat, addReservation, selectSeats, selectSelectedSeats } from '../../features/reservation/reservationSlice'
+import Loader from '../../components/Loader/Loader'
+import Alert from '../../components/Alert/Alert'
+
 
 import reservationViewStyles from './ReservationView.module.css'
 import seatStyles from '../../components/Seat/Seat.module.css'
-import Loader from '../../components/Loader/Loader'
+import alertStyles from '../../components/Alert/Alert.module.css'
 
 
 const ReservationView = () => {
     const history = useHistory()
     const dispatch = useDispatch()
+
+    const { handleDisplayAlert, display, alert_text } = useAlert()
 
     const seats_count = useSelector(seatsCount)
     const seats_near_by = useSelector(seatsNearBy)
@@ -107,7 +122,8 @@ const ReservationView = () => {
             history.push('/reservation-summary')
 
         } else {
-            alert('Nie wybrałeś żadnych miejsc, wybierz miejsca z widoku sali.')
+            //alert('Nie wybrałeś żadnych miejsc, wybierz miejsca z widoku sali.')
+            handleDisplayAlert('Nie wybrałeś żadnych miejsc, wybierz miejsca z widoku sali.')
         }
     }
 
@@ -168,6 +184,7 @@ const ReservationView = () => {
 
     return (
         <div className="wrapper">
+            {display && <Alert type={`${alertStyles.alertBox} ${alertStyles.alertBoxDanger}`} text={alert_text} /> }
             <div className={reservationViewStyles.seatsView}>
                 {content}
             </div>
