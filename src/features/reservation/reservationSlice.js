@@ -49,7 +49,7 @@ const reservationSlice = createSlice({
         }
     },
     extraReducers: {
-        [fetchSeats.pending]: (state, action) => {
+        [fetchSeats.pending]: (state) => {
             state.status = 'loading'
         },
         [fetchSeats.fulfilled]: (state, action) => {

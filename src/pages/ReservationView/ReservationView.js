@@ -9,6 +9,7 @@ import { fetchSeats, addSeats, addSingleSeat, removeSingleSeat, addReservation, 
 
 import reservationViewStyles from './ReservationView.module.css'
 import seatStyles from '../../components/Seat/Seat.module.css'
+import Loader from '../../components/Loader/Loader'
 
 
 const ReservationView = () => {
@@ -113,7 +114,9 @@ const ReservationView = () => {
 
     useEffect(() => {
         if(seatsStatus === 'idle') {
-            dispatch(fetchSeats())
+            setTimeout(() => {
+                dispatch(fetchSeats())
+            }, 2000) 
         }
     }, [seatsStatus, dispatch])
 
@@ -133,8 +136,8 @@ const ReservationView = () => {
 
     let content
 
-    if(seatsStatus === 'loading') {
-        content = <div>Loading...</div>
+    if(seatsStatus === 'idle' || seatsStatus === 'loading') {
+        content = <Loader />
 
     } else if(seatsStatus === 'succeeded') {
         content = seats.map(seat => {
@@ -168,10 +171,13 @@ const ReservationView = () => {
             <div className={reservationViewStyles.seatsView}>
                 {content}
             </div>
-            <div className="d-flex flex-row justify-content-between align-items-center">
-                <Legend />
-                <Button text="Rezerwuj" handleOnClick={handleConfirmReservation} />
-            </div>
+            {seatsStatus === 'succeeded'
+                ?   <div className="d-flex flex-row justify-content-between align-items-center">
+                        <Legend />
+                        <Button text="Rezerwuj" handleOnClick={handleConfirmReservation} />
+                    </div>
+                :   ''
+            }
         </div>
     )
 }
