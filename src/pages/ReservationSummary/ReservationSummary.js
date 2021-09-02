@@ -4,7 +4,11 @@ import { clearReservation, clearSelectedSeats, selectReservedSeats } from "../..
 import { useHistory } from "react-router-dom"
 
 import reservationSummary from './ReservationSummary.module.css'
+import buttonStyles from '../../components/Button/Button.module.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
+
+import Button from "../../components/Button/Button"
+
 
 
 const ReservationSummary = () => {
@@ -29,7 +33,7 @@ const ReservationSummary = () => {
             <UnorderedList data={reservation} />
             <h4 className={reservationSummary.heading}>Dziękujemy! W razie problemów prosimy o kontakt z działem administracji.</h4>
             <hr />
-            <button type="button" className="btn btn-link" onClick={handleRedirectToHomepage}>Powrót do strony głównej</button>
+            <Button buttonStyles={`${buttonStyles.button} ${buttonStyles.buttonSm} ${buttonStyles.buttonPrimary}`} text="Powrót do strony głównej" handleOnClick={handleRedirectToHomepage} />
         </section>
     )
 }

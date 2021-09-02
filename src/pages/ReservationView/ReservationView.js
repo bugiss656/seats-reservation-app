@@ -23,6 +23,7 @@ import Alert from '../../components/Alert/Alert'
 import reservationViewStyles from './ReservationView.module.css'
 import seatStyles from '../../components/Seat/Seat.module.css'
 import alertStyles from '../../components/Alert/Alert.module.css'
+import buttonStyles from '../../components/Button/Button.module.css'
 
 
 const ReservationView = () => {
@@ -190,7 +191,7 @@ const ReservationView = () => {
             {seatsStatus === 'succeeded'
                 ?   <div className="d-flex flex-row justify-content-between align-items-center">
                         <Legend />
-                        <Button text="Rezerwuj" handleOnClick={handleConfirmReservation} />
+                        <Button buttonStyles={`${buttonStyles.button} ${buttonStyles.buttonLg} ${buttonStyles.buttonSecondary}`} text="Rezerwuj" handleOnClick={handleConfirmReservation} />
                     </div>
                 :   ''
             }

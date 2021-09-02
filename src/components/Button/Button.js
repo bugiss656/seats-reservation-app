@@ -1,8 +1,8 @@
 
 
-const Button = ({ text, handleOnClick }) => {
+const Button = ({ buttonStyles, text, handleOnClick }) => {
     return (
-        <button className="btn btn-primary m-2" onClick={handleOnClick}>{text}</button>
+        <button className={buttonStyles} onClick={handleOnClick}>{text}</button>
     )
 }
 
