@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from "react-redux"
 import { clearReservation, clearSelectedSeats, selectReservedSeats } from "../../features/reservation/reservationSlice"
 import { useHistory } from "react-router-dom"
 
+import reservationSummary from './ReservationSummary.module.css'
+import 'bootstrap-icons/font/bootstrap-icons.css'
+
 
 const ReservationSummary = () => {
     const history = useHistory()
@@ -17,13 +20,17 @@ const ReservationSummary = () => {
     }
 
     return (
-        <>
-            <h2>Twoja rezerwacja przebiegła pomyślnie!</h2>
+        <section className={`container ${reservationSummary.reservationSummary}`}> 
+            <h1 className={`${reservationSummary.heading} ${reservationSummary.headingSuccess}`}>
+                <i className="bi bi-clipboard-check"></i>
+                Twoja rezerwacja przebiegła pomyślnie!
+            </h1>
             <h5>Wybrałeś miejsca:</h5>
             <UnorderedList data={reservation} />
-            <h4>Dziękujemy! W razie problemów prosimy o kontakt z działem administracji.</h4>
+            <h4 className={reservationSummary.heading}>Dziękujemy! W razie problemów prosimy o kontakt z działem administracji.</h4>
+            <hr />
             <button type="button" className="btn btn-link" onClick={handleRedirectToHomepage}>Powrót do strony głównej</button>
-        </>
+        </section>
     )
 }
 

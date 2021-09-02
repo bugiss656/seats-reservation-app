@@ -122,7 +122,6 @@ const ReservationView = () => {
             history.push('/reservation-summary')
 
         } else {
-            //alert('Nie wybrałeś żadnych miejsc, wybierz miejsca z widoku sali.')
             handleDisplayAlert('Nie wybrałeś żadnych miejsc, wybierz miejsca z widoku sali.')
         }
     }
