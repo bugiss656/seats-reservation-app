@@ -14,7 +14,7 @@ const Legend = () => {
                 <span className={seatStyles.seatLegendText}>Miejsca zarezerwowane</span>
             </div>
             <div className={`${seatStyles.seatLegendItem} d-flex flex-row align-items-center`}>
-                <Seat type={seatStyles.seatChoice} />
+                <Seat type={`${seatStyles.seatChoice} ${seatStyles.disabled}`} />
                 <span className={seatStyles.seatLegendText}>Twój wybór</span>
             </div>
         </div>

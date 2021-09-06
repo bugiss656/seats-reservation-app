@@ -40,4 +40,5 @@
 .seatAvailable:hover, .seatChoice:hover {
     background-color: #ffa64d;
     box-shadow: 0 0 2px #000000;
+    cursor: pointer;
 }

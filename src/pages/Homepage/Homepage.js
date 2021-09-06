@@ -71,19 +71,17 @@ const Homepage = () => {
 
     return (
         <section className="d-flex justify-content-center align-items-center" style={{height: '100vh'}}>
-            {display && 
-                <Alert type={`${alertStyles.alertBox} ${alertStyles.alertBoxDanger}`} text={alertText} />
-            }
+            {display && <Alert type={`${alertStyles.alertBox} ${alertStyles.alertBoxDanger}`} text={alertText} />}
             <form onSubmit={handleOnFormSubmit}>
-                <div className="row my-3">
+                <div className="row my-4">
                     <Input label="Liczba miejc:" value={seatsCount} onChange={handleInputOnChange} />
                 </div>
-                <div className="row my-3">
+                <div className="row my-4">
                     <div className="col-md-12 d-flex justify-content-center"> 
                         <Checkbox label="Czy miejsca mają być obok siebie?" value={seatsNearBy} onChange={handleCheckboxOnChange} disabled={checkboxDisabled} />
                     </div>
                 </div>
-                <div className="row my-3">
+                <div className="row my-4">
                     <div className="col-md d-flex justify-content-center">
                         <Button buttonStyles={`${buttonStyles.button} ${buttonStyles.buttonLg} ${buttonStyles.buttonSecondary}`} text="Wybierz miejsca" />
                     </div>
