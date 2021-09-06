@@ -30,73 +30,73 @@ const ReservationView = () => {
     const history = useHistory()
     const dispatch = useDispatch()
 
-    const { handleDisplayAlert, display, alert_text } = useAlert()
+    const { handleDisplayAlert, display, alertText } = useAlert()
 
-    const seats_count = useSelector(seatsCount)
-    const seats_near_by = useSelector(seatsNearBy)
+    const selectedSeatsCount = useSelector(seatsCount)
+    const areSeatsNearBy = useSelector(seatsNearBy)
     const seats = useSelector(selectSeats)
     const seatsStatus = useSelector(state => state.reservation.status)
     const error = useSelector(state => state.reservation.error)
-    const selected_seats = useSelector(selectSelectedSeats)
+    const selectedSeats = useSelector(selectSelectedSeats)
 
     const ROW_LAST_SEAT_Y_COORDINATE = 14
 
 
     const handleProposeRandomSeats = useCallback(() => {
-        let propose_seats = []
+        let proposeSeats = []
 
-        for (let i = 1; i <= seats_count; i++) {
+        for (let i = 1; i <= selectedSeatsCount; i++) {
 
-            while (propose_seats.length !== Number(seats_count)) {
+            while (proposeSeats.length !== Number(selectedSeatsCount)) {
                 const seat = Math.floor(Math.random() * seats.length)
 
                 if (seats[seat].reserved === false && seats[seat].active === true) {
-                    propose_seats.push(seats[seat].id)
+                    proposeSeats.push(seats[seat].id)
                 }
             }
         }
 
-        dispatch(addSeats(propose_seats))
+        dispatch(addSeats(proposeSeats))
 
-    }, [seats, seats_count, dispatch])
+    }, [seats, selectedSeatsCount, dispatch])
 
     
     const handleProposeSeatsNearBy = useCallback(() => {
-        let propose_seats = []
+        let proposeSeats = []
 
-        while (propose_seats.length !== Number(seats_count)) {
-            propose_seats = []
-            let starting_seat_index = Math.floor(Math.random() * seats.length)
+        while (proposeSeats.length !== Number(selectedSeatsCount)) {
+            proposeSeats = []
+            let startingSeatIndex = Math.floor(Math.random() * seats.length)
 
-            if (seats[starting_seat_index].cords.y !== ROW_LAST_SEAT_Y_COORDINATE &&
-                seats[starting_seat_index].cords.y + (seats_count - 1) <= ROW_LAST_SEAT_Y_COORDINATE &&
-                seats[starting_seat_index].reserved !== true &&
-                seats[starting_seat_index].active !== false) {
+            if (seats[startingSeatIndex].cords.y !== ROW_LAST_SEAT_Y_COORDINATE &&
+                seats[startingSeatIndex].cords.y + (selectedSeatsCount - 1) <= ROW_LAST_SEAT_Y_COORDINATE &&
+                seats[startingSeatIndex].reserved !== true &&
+                seats[startingSeatIndex].active !== false) {
                 
-                propose_seats.push(seats[starting_seat_index].id)
+                proposeSeats.push(seats[startingSeatIndex].id)
 
-                for (let i = 1; i <= seats_count - 1; i++) {
+                for (let i = 1; i <= selectedSeatsCount - 1; i++) {
 
-                    if (seats[starting_seat_index + i].reserved !== true &&
-                        seats[starting_seat_index + i].active !== false) {
+                    if (seats[startingSeatIndex + i].reserved !== true &&
+                        seats[startingSeatIndex + i].active !== false) {
                             
-                        propose_seats.push(seats[starting_seat_index + i].id)    
+                        proposeSeats.push(seats[startingSeatIndex + i].id)    
                     }
                 }
             }
         }
 
-        dispatch(addSeats(propose_seats))
+        dispatch(addSeats(proposeSeats))
 
-    }, [seats, seats_count, dispatch])
+    }, [seats, selectedSeatsCount, dispatch])
 
     
-    const handleChooseSeatsFromView = seat_id => {
-        if (selected_seats.includes(seat_id)) {
-            dispatch(removeSingleSeat(seat_id))
+    const handleChooseSeatsFromView = seatId => {
+        if (selectedSeats.includes(seatId)) {
+            dispatch(removeSingleSeat(seatId))
 
-        } else if (!selected_seats.includes(seat_id)) {
-            dispatch(addSingleSeat(seat_id))  
+        } else if (!selectedSeats.includes(seatId)) {
+            dispatch(addSingleSeat(seatId))  
         }
     }
 
@@ -104,11 +104,11 @@ const ReservationView = () => {
     const handleAddSeatsToReservation = () => {
         let reservation = []
 
-        for (let i = 0; i <= selected_seats.length - 1; i++) {
+        for (let i = 0; i <= selectedSeats.length - 1; i++) {
 
             for (let j = 0; j <= seats.length - 1; j++) {
     
-                if (seats[j].id === selected_seats[i]) {
+                if (seats[j].id === selectedSeats[i]) {
                     reservation.push(seats[j])
                 }
             }
@@ -118,7 +118,7 @@ const ReservationView = () => {
 
 
     const handleConfirmReservation = () => {
-        if (selected_seats.length !== 0) {
+        if (selectedSeats.length !== 0) {
             handleAddSeatsToReservation()
             history.push('/reservation-summary')
 
@@ -140,14 +140,14 @@ const ReservationView = () => {
     useEffect(() => {
         if(seatsStatus === 'succeeded') {
 
-            if(seats_near_by === false) {
+            if(areSeatsNearBy === false) {
                 handleProposeRandomSeats()
 
-            } else if(seats_near_by === true) {
+            } else if(areSeatsNearBy === true) {
                 handleProposeSeatsNearBy()
             }
         }
-    }, [handleProposeRandomSeats, handleProposeSeatsNearBy, seatsStatus, seats_near_by])
+    }, [handleProposeRandomSeats, handleProposeSeatsNearBy, seatsStatus, areSeatsNearBy])
 
 
     let content
@@ -160,7 +160,7 @@ const ReservationView = () => {
 
             if(seat.active === true && seat.reserved === false) {
                 
-                if(selected_seats.includes(seat.id)) {
+                if(selectedSeats.includes(seat.id)) {
                     return <Seat key={seat.id} type={seatStyles.seatChoice} handleOnClick={() => handleChooseSeatsFromView(seat.id)} />
                 
                 } else {
@@ -184,7 +184,7 @@ const ReservationView = () => {
 
     return (
         <div className="wrapper">
-            {display && <Alert type={`${alertStyles.alertBox} ${alertStyles.alertBoxDanger}`} text={alert_text} /> }
+            {display && <Alert type={`${alertStyles.alertBox} ${alertStyles.alertBoxDanger}`} text={alertText} /> }
             <div className={reservationViewStyles.seatsView}>
                 {content}
             </div>

@@ -14,7 +14,7 @@ import Button from "../../components/Button/Button"
 const ReservationSummary = () => {
     const history = useHistory()
     const dispatch = useDispatch()
-    const reservation = useSelector(selectReservedSeats)
+    const reservedSeats = useSelector(selectReservedSeats)
 
     const handleRedirectToHomepage = () => {
         dispatch(clearSelectedSeats())
@@ -30,7 +30,7 @@ const ReservationSummary = () => {
                 Twoja rezerwacja przebiegła pomyślnie!
             </h1>
             <h5>Wybrałeś miejsca:</h5>
-            <UnorderedList data={reservation} />
+            <UnorderedList data={reservedSeats} />
             <h4 className={reservationSummary.heading}>Dziękujemy! W razie problemów prosimy o kontakt z działem administracji.</h4>
             <hr />
             <Button buttonStyles={`${buttonStyles.button} ${buttonStyles.buttonSm} ${buttonStyles.buttonPrimary}`} text="Powrót do strony głównej" handleOnClick={handleRedirectToHomepage} />

@@ -15,11 +15,11 @@ import useAlert from '../../components/Alert/useAlert'
 
 
 const Homepage = () => {
-    const [seats_count, setSeatsCount] = useState(0)
-    const [seats_near_by, setSeatsNearBy] = useState(false)
-    const [checkbox_disabled, setCheckboxDisabled] = useState(true)
+    const [seatsCount, setSeatsCount] = useState(0)
+    const [seatsNearBy, setSeatsNearBy] = useState(false)
+    const [checkboxDisabled, setCheckboxDisabled] = useState(true)
     
-    const { handleDisplayAlert, display, alert_text } = useAlert()
+    const { handleDisplayAlert, display, alertText } = useAlert()
 
     const dispatch = useDispatch()
     const history = useHistory()
@@ -37,28 +37,28 @@ const Homepage = () => {
 
 
     const handleCheckboxOnChange = () => {
-        setSeatsNearBy(!seats_near_by)
+        setSeatsNearBy(!seatsNearBy)
     }
 
 
     const handleUpdateSeatsCount = () => {
-        dispatch(updateSeatsCount(seats_count))
+        dispatch(updateSeatsCount(seatsCount))
     }
 
 
     const handleUpdateSeatsNearBy = () => {
-        dispatch(updateSeatsNearBy(seats_near_by))
+        dispatch(updateSeatsNearBy(seatsNearBy))
     }
     
 
     const handleOnFormSubmit = (e) => {
         e.preventDefault()
 
-        if ( seats_count === 0) {
+        if ( seatsCount === 0) {
             handleDisplayAlert('Nie wybrano żadnych miejsc, spróbuj ponownie.')
 
 
-        } else if (seats_near_by === true && seats_count > 5) {
+        } else if (seatsNearBy === true && seatsCount > 5) {
             handleDisplayAlert('Maksymalna ilość miejsc obok siebie: 5.')
 
         } else {
@@ -72,15 +72,15 @@ const Homepage = () => {
     return (
         <section className="d-flex justify-content-center align-items-center" style={{height: '100vh'}}>
             {display && 
-                <Alert type={`${alertStyles.alertBox} ${alertStyles.alertBoxDanger}`} text={alert_text} />
+                <Alert type={`${alertStyles.alertBox} ${alertStyles.alertBoxDanger}`} text={alertText} />
             }
             <form onSubmit={handleOnFormSubmit}>
                 <div className="row my-3">
-                    <Input label="Liczba miejc:" value={seats_count} onChange={handleInputOnChange} />
+                    <Input label="Liczba miejc:" value={seatsCount} onChange={handleInputOnChange} />
                 </div>
                 <div className="row my-3">
                     <div className="col-md-12 d-flex justify-content-center"> 
-                        <Checkbox label="Czy miejsca mają być obok siebie?" value={seats_near_by} onChange={handleCheckboxOnChange} disabled={checkbox_disabled} />
+                        <Checkbox label="Czy miejsca mają być obok siebie?" value={seatsNearBy} onChange={handleCheckboxOnChange} disabled={checkboxDisabled} />
                     </div>
                 </div>
                 <div className="row my-3">

@@ -5,8 +5,8 @@ const initialState = {
     seats: [],
     status: 'idle',
     error: null,
-    selected_seats: [],
-    reservation: []
+    selectedSeats: [],
+    reservedSeats: []
 }
 
 export const fetchSeats = createAsyncThunk('reservation/fetchSeats', async () => {
@@ -28,24 +28,24 @@ const reservationSlice = createSlice({
     initialState,
     reducers: {
         addSeats: (state, action) => {
-            state.selected_seats = action.payload
+            state.selectedSeats = action.payload
         },
         addSingleSeat: (state, action) => {
-            const seat_id = action.payload
-            state.selected_seats.push(seat_id)
+            const seatId = action.payload
+            state.selectedSeats.push(seatId)
         },
         removeSingleSeat: (state, action) => {
-            const seat_id = action.payload
-            state.selected_seats = state.selected_seats.filter(seat => seat !== seat_id)
+            const seatId = action.payload
+            state.selectedSeats = state.selectedSeats.filter(seat => seat !== seatId)
         },
         addReservation: (state, action) => {
-            state.reservation = action.payload.sort(handleSortSeatsByRow)
+            state.reservedSeats = action.payload.sort(handleSortSeatsByRow)
         },
         clearSelectedSeats: (state) => {
-            state.selected_seats = []
+            state.selectedSeats = []
         },
         clearReservation: (state) => {
-            state.reservation = []
+            state.reservedSeats = []
         }
     },
     extraReducers: {
@@ -69,6 +69,6 @@ export default reservationSlice.reducer
 
 export const selectSeats = state => state.reservation.seats
 
-export const selectSelectedSeats = state => state.reservation.selected_seats
+export const selectSelectedSeats = state => state.reservation.selectedSeats
 
-export const selectReservedSeats = state => state.reservation.reservation
+export const selectReservedSeats = state => state.reservation.reservedSeats

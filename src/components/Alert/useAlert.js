@@ -3,7 +3,7 @@ import { useState, useCallback } from 'react'
 
 const useAlert = () => {
     const [display, setDisplay] = useState(false)
-    const [alert_text, setAlertText] = useState('')
+    const [alertText, setAlertText] = useState('')
 
     const handleDisplayAlert = useCallback((text) => {
         setDisplay(true)
@@ -15,7 +15,7 @@ const useAlert = () => {
         }, 3000)
     }, [])
 
-    return { handleDisplayAlert, display, alert_text }
+    return { handleDisplayAlert, display, alertText }
 }
 
 export default useAlert

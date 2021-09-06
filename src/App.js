@@ -16,15 +16,9 @@ function App() {
       <Navbar />
       <Router>
         <Switch>
-          <Route exact path="/">
-            <Homepage />
-          </Route>
-          <Route path="/reservation-view">
-            <ReservationView />
-          </Route>
-          <Route path="/reservation-summary">
-            <ReservationSummary />
-          </Route>
+          <Route exact path="/" component={Homepage} />
+          <Route path="/reservation-view" component={ReservationView} />
+          <Route path="/reservation-summary" component={ReservationSummary} />
         </Switch>
       </Router>
     </div>
