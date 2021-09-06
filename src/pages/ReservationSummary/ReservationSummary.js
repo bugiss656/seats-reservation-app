@@ -33,7 +33,7 @@ const ReservationSummary = () => {
             <UnorderedList data={reservedSeats} />
             <h4 className={reservationSummary.heading}>Dziękujemy! W razie problemów prosimy o kontakt z działem administracji.</h4>
             <hr />
-            <Button buttonStyles={`${buttonStyles.button} ${buttonStyles.buttonSm} ${buttonStyles.buttonPrimary}`} text="Powrót do strony głównej" handleOnClick={handleRedirectToHomepage} />
+            <Button buttonStyles={`${buttonStyles.button} ${buttonStyles.buttonSm}`} text="Powrót do strony głównej" handleOnClick={handleRedirectToHomepage} />
         </section>
     )
 }

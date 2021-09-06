@@ -1,35 +1,24 @@
 .button {
     background-color: #ffffff;
     color: #000000;
+    border: 3px solid #3399ff;
+    border-radius: 60px;
     margin: 10px;
     cursor: pointer;
     transition: color 0.2s, background-color 0.2s;
 }
 
 .buttonSm {
-    padding: 10px 20px;
-    font-size: 12px;
+    padding: 8px 24px;
+    font-size: 14px;
 }
 
 .buttonLg {
-    padding: 14px 28px;
-    font-size: 16px;
+    padding: 12px 28px;
+    font-size: 18px;
 }
 
-.buttonPrimary {
-    border: 3px solid #0088cc;
-}
-
-.buttonPrimary:hover {
+.button:hover {
     color: #ffffff;
     background-color: #0088cc;
-}
-
-.buttonSecondary {
-    border: 3px solid #39ac39;
-}
-
-.buttonSecondary:hover {
-    color: #ffffff;
-    background-color: #39ac39;
 }

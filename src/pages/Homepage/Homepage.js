@@ -83,7 +83,7 @@ const Homepage = () => {
                 </div>
                 <div className="row my-4">
                     <div className="col-md d-flex justify-content-center">
-                        <Button buttonStyles={`${buttonStyles.button} ${buttonStyles.buttonLg} ${buttonStyles.buttonSecondary}`} text="Wybierz miejsca" />
+                        <Button buttonStyles={`${buttonStyles.button} ${buttonStyles.buttonLg}`} text="Wybierz miejsca" />
                     </div>
                 </div>
             </form>
