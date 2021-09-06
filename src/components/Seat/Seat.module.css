@@ -3,6 +3,7 @@
     justify-self: center;
     width: 65px;
     height: 65px;
+    border-radius: 6px;
 }
 
 .disabled {
@@ -12,7 +13,7 @@
 .seatAvailable {
     background-color: #ffffff;
     border: 2px solid #000000;
-    transition: box-shadow 0.2s, background-color 0.1s;
+    transition: box-shadow 0.1s, background-color 0.1s;
 }
 
 .seatReserved {
@@ -21,7 +22,7 @@
 }
 
 .seatChoice {
-    background-color: #ffa64d;
+    background-color: #ffb366;
     border: 2px solid #000000;
 }
 
@@ -38,7 +39,7 @@
 }
 
 .seatAvailable:hover, .seatChoice:hover {
-    background-color: #ffa64d;
-    box-shadow: 0 0 2px #000000;
+    background-color: #ffb366;
+    box-shadow: 0 0 3px #000000;
     cursor: pointer;
 }
