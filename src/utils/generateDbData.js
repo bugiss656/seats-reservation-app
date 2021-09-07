@@ -3,6 +3,7 @@ const { writeJson } = pkg
 
 
 // Function that generates api data describing seats in the hall. 
+// Run this script with the command: npm run generate.
 const generateDbData = () => {
     const HALL_ROWS = 7
     const HALL_ROW_SEATS = 15

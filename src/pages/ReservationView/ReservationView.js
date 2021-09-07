@@ -8,6 +8,7 @@ import {
     addSeats, 
     addSingleSeat, 
     removeSingleSeat, 
+    clearSelectedSeats,
     addReservation, 
     selectSeats, 
     selectSelectedSeats 
@@ -41,25 +42,25 @@ const ReservationView = () => {
 
     const ROW_LAST_SEAT_Y_COORDINATE = 14
 
-
+    
     const handleProposeRandomSeats = useCallback(() => {
-        let proposeSeats = []
+        dispatch(clearSelectedSeats())
+        const availableSeats = seats.filter(seat => seat.reserved !== true && seat.active === true)
 
-        for (let i = 1; i <= selectedSeatsCount; i++) {
-
-            while (proposeSeats.length !== Number(selectedSeatsCount)) {
-                const seat = Math.floor(Math.random() * seats.length)
-
-                if (seats[seat].reserved === false && seats[seat].active === true) {
-                    proposeSeats.push(seats[seat].id)
+        if(selectedSeatsCount <= availableSeats.length) {
+            let proposeSeats = []
+            for(let i = 1; i <= selectedSeatsCount; i++) {
+                while(proposeSeats.length !== Number(selectedSeatsCount)) {
+                    const seat = Math.floor(Math.random() * availableSeats.length)
+                    proposeSeats.push(availableSeats[seat].id)
                 }
             }
+            dispatch(addSeats(proposeSeats))
+        } else {
+            console.log("Selected seats count not available!")
         }
-
-        dispatch(addSeats(proposeSeats))
-
     }, [seats, selectedSeatsCount, dispatch])
-
+    
     
     const handleProposeSeatsNearBy = useCallback(() => {
         let proposeSeats = []
