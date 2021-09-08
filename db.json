@@ -79,7 +79,7 @@
         "y": 8
       },
       "active": true,
-      "reserved": false
+      "reserved": true
     },
     {
       "id": "s09",
@@ -88,7 +88,7 @@
         "y": 9
       },
       "active": true,
-      "reserved": false
+      "reserved": true
     },
     {
       "id": "s010",
@@ -376,7 +376,7 @@
         "y": 11
       },
       "active": true,
-      "reserved": false
+      "reserved": true
     },
     {
       "id": "s212",
@@ -385,7 +385,7 @@
         "y": 12
       },
       "active": true,
-      "reserved": false
+      "reserved": true
     },
     {
       "id": "s213",
@@ -412,7 +412,7 @@
         "y": 0
       },
       "active": true,
-      "reserved": false
+      "reserved": true
     },
     {
       "id": "s31",
@@ -421,7 +421,7 @@
         "y": 1
       },
       "active": true,
-      "reserved": false
+      "reserved": true
     },
     {
       "id": "s32",
@@ -565,7 +565,7 @@
         "y": 2
       },
       "active": true,
-      "reserved": true
+      "reserved": false
     },
     {
       "id": "s43",
@@ -646,7 +646,7 @@
         "y": 11
       },
       "active": true,
-      "reserved": false
+      "reserved": true
     },
     {
       "id": "s412",
@@ -871,7 +871,7 @@
         "y": 6
       },
       "active": true,
-      "reserved": false
+      "reserved": true
     },
     {
       "id": "s67",
@@ -880,7 +880,7 @@
         "y": 7
       },
       "active": true,
-      "reserved": false
+      "reserved": true
     },
     {
       "id": "s68",
@@ -934,7 +934,7 @@
         "y": 13
       },
       "active": true,
-      "reserved": false
+      "reserved": true
     },
     {
       "id": "s614",
@@ -943,7 +943,7 @@
         "y": 14
       },
       "active": true,
-      "reserved": false
+      "reserved": true
     }
   ]
 }
