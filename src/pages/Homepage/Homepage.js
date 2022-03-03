@@ -5,9 +5,8 @@ import Checkbox from '../../components/Checkbox/Checkbox'
 import Input from '../../components/Input/Input'
 import { useDispatch } from 'react-redux'
 import { updateSeatsCount, updateSeatsNearBy } from '../../features/order/orderSlice'
-import Alert from '../../components/Alert/Alert'
+import Alert from '../../components/Alert/Alert.styled'
 
-import alertStyles from '../../components/Alert/Alert.module.css'
 import buttonStyles from '../../components/Button/Button.module.css'
 
 import useAlert from '../../components/Alert/useAlert'
@@ -71,7 +70,7 @@ const Homepage = () => {
 
     return (
         <section className="d-flex justify-content-center align-items-center" style={{height: '100vh'}}>
-            {display && <Alert type={`${alertStyles.alertBox} ${alertStyles.alertBoxDanger}`} text={alertText} />}
+            {display && <Alert alertType="danger" alertText={alertText} />}
             <form onSubmit={handleOnFormSubmit}>
                 <div className="row my-4">
                     <Input label="Liczba miejc:" value={seatsCount} onChange={handleInputOnChange} />
