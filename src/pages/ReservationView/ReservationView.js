@@ -191,7 +191,7 @@ const ReservationView = () => {
             {seatsStatus === 'succeeded'
                 ?   <div className="d-flex flex-row justify-content-between align-items-center">
                         <Legend />
-                        <Button buttonStyles={`${buttonStyles.button} ${buttonStyles.buttonLg}`} text="Rezerwuj" handleOnClick={handleConfirmReservation} />
+                        <Button buttonSize={buttonStyles['button-lg']} buttonText="Rezerwuj" onClick={handleConfirmReservation} />
                     </div>
                 :   ''
             }

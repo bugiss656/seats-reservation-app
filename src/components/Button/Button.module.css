@@ -8,12 +8,12 @@
     transition: color 0.2s, background-color 0.2s;
 }
 
-.buttonSm {
+.button-sm {
     padding: 8px 24px;
     font-size: 14px;
 }
 
-.buttonLg {
+.button-lg {
     padding: 12px 28px;
     font-size: 18px;
 }

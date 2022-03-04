@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux'
 import { updateSeatsCount, updateSeatsNearBy } from '../../features/order/orderSlice'
 import Alert from '../../components/Alert/Alert'
 
-import styles from '../../components/Alert/Alert.module.css'
+import alertStyles from '../../components/Alert/Alert.module.css'
 import buttonStyles from '../../components/Button/Button.module.css'
 
 import useAlert from '../../components/Alert/useAlert'
@@ -71,7 +71,7 @@ const Homepage = () => {
 
     return (
         <section className="d-flex justify-content-center align-items-center" style={{height: '100vh'}}>
-            {display && <Alert alertType={`${styles['alert-box']} ${styles['alert-box--danger']}`} alertText={alertText} />}
+            {display && <Alert alertType={`${alertStyles['alert-box']} ${alertStyles['alert-box--danger']}`} alertText={alertText} />}
             <form onSubmit={handleOnFormSubmit}>
                 <div className="row my-4">
                     <Input label="Liczba miejc:" value={seatsCount} onChange={handleInputOnChange} />
@@ -83,7 +83,7 @@ const Homepage = () => {
                 </div>
                 <div className="row my-4">
                     <div className="col-md d-flex justify-content-center">
-                        <Button buttonStyles={`${buttonStyles.button} ${buttonStyles.buttonLg}`} text="Wybierz miejsca" />
+                        <Button buttonSize={buttonStyles['button-lg']} buttonText="Wybierz miejsca" />
                     </div>
                 </div>
             </form>
