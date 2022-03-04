@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import Button from '../../components/Button/Button'
+//import Button from '../../components/Button/Button'
+import { StyledButtonLg } from '../../components/Button/Button.styled'
 import Checkbox from '../../components/Checkbox/Checkbox'
 import Input from '../../components/Input/Input'
 import { useDispatch } from 'react-redux'
 import { updateSeatsCount, updateSeatsNearBy } from '../../features/order/orderSlice'
 import Alert from '../../components/Alert/Alert.styled'
 
-import buttonStyles from '../../components/Button/Button.module.css'
+//import buttonStyles from '../../components/Button/Button.module.css'
 
 import useAlert from '../../components/Alert/useAlert'
 
@@ -82,7 +83,8 @@ const Homepage = () => {
                 </div>
                 <div className="row my-4">
                     <div className="col-md d-flex justify-content-center">
-                        <Button buttonStyles={`${buttonStyles.button} ${buttonStyles.buttonLg}`} text="Wybierz miejsca" />
+                        {/*<Button buttonStyles={`${buttonStyles.button} ${buttonStyles.buttonLg}`} text="Wybierz miejsca" />*/}
+                        <StyledButtonLg buttonSize="lg">Wybierz miejsca</StyledButtonLg>
                     </div>
                 </div>
             </form>

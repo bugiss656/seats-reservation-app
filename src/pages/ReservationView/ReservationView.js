@@ -183,7 +183,7 @@ const ReservationView = () => {
 
     return (
         <div className="wrapper">
-            {display && <Alert type="danger" alertText={alertText} /> }
+            {display && <Alert alertType="danger" alertText={alertText} /> }
             <div className={reservationViewStyles.seatsView}>
                 {content}
             </div>
