@@ -1,4 +1,4 @@
-.alertBox {
+.alert-box {
     position: fixed;
     left: 0;
     top: 80px;
@@ -7,10 +7,10 @@
     font-size: 16px;
 }
 
-.alertBoxSuccess {
+.alert-box--success {
     background-color: #ccffcc;
 }
 
-.alertBoxDanger {
+.alert-box--danger {
     background-color: #ffe6e6;
 }
