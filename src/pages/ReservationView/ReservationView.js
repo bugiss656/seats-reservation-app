@@ -18,11 +18,12 @@ import Seat from '../../components/Seat/Seat'
 import Legend from '../../components/Legend/Legend'
 import Button from '../../components/Button/Button'
 import Loader from '../../components/Loader/Loader'
-import Alert from '../../components/Alert/Alert.styled'
+import Alert from '../../components/Alert/Alert'
 
 
 import reservationViewStyles from './ReservationView.module.css'
 import seatStyles from '../../components/Seat/Seat.module.css'
+import alertStyles from '../../components/Alert/Alert.module.css'
 import buttonStyles from '../../components/Button/Button.module.css'
 
 
@@ -183,7 +184,7 @@ const ReservationView = () => {
 
     return (
         <div className="wrapper">
-            {display && <Alert alertType="danger" alertText={alertText} /> }
+            {display && <Alert type={`${alertStyles.alertBox} ${alertStyles.alertBoxDanger}`} text={alertText} /> }
             <div className={reservationViewStyles.seatsView}>
                 {content}
             </div>

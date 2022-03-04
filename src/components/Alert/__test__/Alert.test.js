@@ -1,23 +1,24 @@
 import { render, screen } from '@testing-library/react'
-import Alert from '../Alert.styled'
+import Alert from '../Alert'
+import alertStyles from '../Alert.module.css'
 
 
 describe("Alert", () => {
     it("should render an alert component", async() => {
-        render(<Alert alertText="Alert component" />)
+        render(<Alert text="Alert component" />)
         const alertElement = screen.getByText(/Alert component/i)
         expect(alertElement).toBeInTheDocument()
     })
 
     it("should render an alert component with success alert class", async() => {
-        render(<Alert alertType='success' alertText="Alert component" />)
+        render(<Alert type={`${alertStyles.alertBox} ${alertStyles.alertBoxSuccess}`} text="Alert component" />)
         const alertElement = screen.getByText(/Alert component/i)
-        expect(alertElement).toHaveStyle('background-color: #ccffcc')
+        expect(alertElement).toHaveClass('alertBox', 'alertBoxSuccess')
     })
 
     it("should render an alert component with danger alert class", async() => {
-        render(<Alert alertType='danger' alertText="Alert component" />)
+        render(<Alert type={`${alertStyles.alertBox} ${alertStyles.alertBoxDanger}`} text="Alert component" />)
         const alertElement = screen.getByText(/Alert component/i)
-        expect(alertElement).toHaveStyle('background-color: #ffe6e6')
+        expect(alertElement).toHaveClass('alertBox', 'alertBoxDanger')
     })
 })

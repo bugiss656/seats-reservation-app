@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-//import Button from '../../components/Button/Button'
-import { StyledButtonLg } from '../../components/Button/Button.styled'
+import Button from '../../components/Button/Button'
 import Checkbox from '../../components/Checkbox/Checkbox'
 import Input from '../../components/Input/Input'
 import { useDispatch } from 'react-redux'
 import { updateSeatsCount, updateSeatsNearBy } from '../../features/order/orderSlice'
-import Alert from '../../components/Alert/Alert.styled'
+import Alert from '../../components/Alert/Alert'
 
-//import buttonStyles from '../../components/Button/Button.module.css'
+import alertStyles from '../../components/Alert/Alert.module.css'
+import buttonStyles from '../../components/Button/Button.module.css'
 
 import useAlert from '../../components/Alert/useAlert'
 
@@ -71,7 +71,7 @@ const Homepage = () => {
 
     return (
         <section className="d-flex justify-content-center align-items-center" style={{height: '100vh'}}>
-            {display && <Alert alertType="danger" alertText={alertText} />}
+            {display && <Alert type={`${alertStyles.alertBox} ${alertStyles.alertBoxDanger}`} text={alertText} />}
             <form onSubmit={handleOnFormSubmit}>
                 <div className="row my-4">
                     <Input label="Liczba miejc:" value={seatsCount} onChange={handleInputOnChange} />
@@ -83,8 +83,7 @@ const Homepage = () => {
                 </div>
                 <div className="row my-4">
                     <div className="col-md d-flex justify-content-center">
-                        {/*<Button buttonStyles={`${buttonStyles.button} ${buttonStyles.buttonLg}`} text="Wybierz miejsca" />*/}
-                        <StyledButtonLg buttonSize="lg">Wybierz miejsca</StyledButtonLg>
+                        <Button buttonStyles={`${buttonStyles.button} ${buttonStyles.buttonLg}`} text="Wybierz miejsca" />
                     </div>
                 </div>
             </form>
