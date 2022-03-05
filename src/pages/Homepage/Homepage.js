@@ -78,7 +78,7 @@ const Homepage = () => {
                 </div>
                 <div className="row my-4">
                     <div className="col-md-12 d-flex justify-content-center"> 
-                        <Checkbox label="Czy miejsca mają być obok siebie?" value={seatsNearBy} onChange={handleCheckboxOnChange} disabled={checkboxDisabled} />
+                        <Checkbox checkboxLabelText="Czy miejsca mają być obok siebie?" isChecked={seatsNearBy} onChange={handleCheckboxOnChange} isDisabled={checkboxDisabled} />
                     </div>
                 </div>
                 <div className="row my-4">
