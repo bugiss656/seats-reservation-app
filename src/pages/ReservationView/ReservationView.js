@@ -45,19 +45,24 @@ const ReservationView = () => {
 
     const handleProposeRandomSeats = useCallback(() => {
         dispatch(clearSelectedSeats())
-        const availableSeats = seats.filter(seat => seat.reserved !== true && seat.active === true)
+        const availableSeats = seats.filter(seat => seat.reserved !== true && seat.active !== false)
 
         if(selectedSeatsCount <= availableSeats.length) {
             let proposeSeats = []
-            for(let i = 1; i <= selectedSeatsCount; i++) {
-                const seat = Math.floor(Math.random() * availableSeats.length)
+
+            while(proposeSeats.length < selectedSeatsCount) {
+                let seat = Math.floor(Math.random() * availableSeats.length)
+
+                if(proposeSeats.includes(availableSeats[seat].id)) {
+                    seat = Math.floor(Math.random() * availableSeats.length)
+                }
                 if(!proposeSeats.includes(availableSeats[seat].id)) {
                     proposeSeats.push(availableSeats[seat].id)
                 }
             }
             dispatch(addSeats(proposeSeats))
         } else {
-            handleDisplayAlert("Selected seats count not available!")
+            handleDisplayAlert("Selected seats count not available! Please choose seats from hall view.")
         }
     }, [seats, selectedSeatsCount, dispatch, handleDisplayAlert])
     
