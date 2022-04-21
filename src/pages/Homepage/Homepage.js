@@ -71,19 +71,19 @@ const Homepage = () => {
 
     return (
         <section className="d-flex justify-content-center align-items-center" style={{height: '100vh'}}>
-            {display && <Alert alertType={`${alertStyles['alert-box']} ${alertStyles['alert-box--danger']}`} alertText={alertText} />}
+            {display && <Alert type={`${alertStyles['alert-box']} ${alertStyles['alert-box--danger']}`} text={alertText} />}
             <form onSubmit={handleOnFormSubmit}>
                 <div className="row my-4">
                     <Input label="Liczba miejc:" value={seatsCount} onChange={handleInputOnChange} />
                 </div>
                 <div className="row my-4">
                     <div className="col-md-12 d-flex justify-content-center"> 
-                        <Checkbox checkboxLabelText="Czy miejsca mają być obok siebie?" isChecked={seatsNearBy} onChange={handleCheckboxOnChange} isDisabled={checkboxDisabled} />
+                        <Checkbox labelText="Czy miejsca mają być obok siebie?" isChecked={seatsNearBy} onChange={handleCheckboxOnChange} isDisabled={checkboxDisabled} />
                     </div>
                 </div>
                 <div className="row my-4">
                     <div className="col-md d-flex justify-content-center">
-                        <Button buttonSize={buttonStyles['button-lg']} buttonText="Wybierz miejsca" />
+                        <Button size={buttonStyles['button-lg']} text="Wybierz miejsca" />
                     </div>
                 </div>
             </form>

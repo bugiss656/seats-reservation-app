@@ -1,8 +1,8 @@
 
 
-const Alert = ({ alertType, alertText }) => {
+const Alert = ({ type, text }) => {
     return (
-        <div className={alertType}>{alertText}</div>
+        <div className={type}>{text}</div>
     )
 }
 

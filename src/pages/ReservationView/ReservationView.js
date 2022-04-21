@@ -184,14 +184,14 @@ const ReservationView = () => {
 
     return (
         <div className="wrapper">
-            {display && <Alert alertType={`${styles['alert-box']} ${styles['alert-box--danger']}`} alertText={alertText} /> }
+            {display && <Alert type={`${styles['alert-box']} ${styles['alert-box--danger']}`} text={alertText} /> }
             <div className={reservationViewStyles.seatsView}>
                 {content}
             </div>
             {seatsStatus === 'succeeded'
                 ?   <div className="d-flex flex-row justify-content-between align-items-center">
                         <Legend />
-                        <Button buttonSize={buttonStyles['button-lg']} buttonText="Rezerwuj" onClick={handleConfirmReservation} />
+                        <Button size={buttonStyles['button-lg']} text="Rezerwuj" onClick={handleConfirmReservation} />
                     </div>
                 :   ''
             }
