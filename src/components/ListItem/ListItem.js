@@ -1,9 +1,9 @@
-import listItem from './ListItem.module.css'
+import listItemStyles from './ListItem.module.css'
 
 
 const ListItem = ({ text }) => {
     return (
-        <li className={listItem.listItem}>{text}</li>
+        <li className={listItemStyles.listItem}>{text}</li>
     )
 }
 

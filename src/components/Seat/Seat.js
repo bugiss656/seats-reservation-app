@@ -1,9 +1,9 @@
-import styles from './Seat.module.css'
+import seatStyles from './Seat.module.css'
 
 
 const Seat = ({ type, handleOnClick }) => {
     return (
-        <div className={`${styles.seat} ${type}`} onClick={handleOnClick}></div>
+        <div className={`${seatStyles.seat} ${type}`} onClick={handleOnClick}></div>
     )
 }
 

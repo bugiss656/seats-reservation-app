@@ -23,7 +23,7 @@ import Alert from '../../components/Alert/Alert'
 
 import reservationViewStyles from './ReservationView.module.css'
 import seatStyles from '../../components/Seat/Seat.module.css'
-import styles from '../../components/Alert/Alert.module.css'
+import alertStyles from '../../components/Alert/Alert.module.css'
 import buttonStyles from '../../components/Button/Button.module.css'
 
 
@@ -184,7 +184,7 @@ const ReservationView = () => {
 
     return (
         <div className="wrapper">
-            {display && <Alert type={`${styles['alert-box']} ${styles['alert-box--danger']}`} text={alertText} /> }
+            {display && <Alert type={`${alertStyles['alert-box']} ${alertStyles['alert-box--danger']}`} text={alertText} /> }
             <div className={reservationViewStyles.seatsView}>
                 {content}
             </div>

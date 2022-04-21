@@ -7,10 +7,10 @@ import { useDispatch } from 'react-redux'
 import { updateSeatsCount, updateSeatsNearBy } from '../../features/order/orderSlice'
 import Alert from '../../components/Alert/Alert'
 
+import useAlert from '../../components/Alert/useAlert'
+
 import alertStyles from '../../components/Alert/Alert.module.css'
 import buttonStyles from '../../components/Button/Button.module.css'
-
-import useAlert from '../../components/Alert/useAlert'
 
 
 
